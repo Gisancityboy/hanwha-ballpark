@@ -924,7 +924,7 @@ function lbClose(){
 
 document.addEventListener('click',function(e){
  var t=e.target;
- if(t.tagName==='IMG' && t.id!=='lb-img' && t.src && t.src.indexOf('data:')===0){
+ if(t.tagName==='IMG' && t.id!=='lb-img' && t.src && t.src.length>0 && !t.src.endsWith('img001.png')){
     document.getElementById('lb-img').src=t.src;
     document.getElementById('lb-overlay').classList.add('on');
   }
