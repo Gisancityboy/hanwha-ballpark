@@ -1004,8 +1004,62 @@ document.addEventListener('click',function(e){
   }
 });
 function lbClose(){document.getElementById('lb-overlay').classList.remove('on');}
+
+function netSumToggle(btn){
+ var body=btn.nextElementSibling;
+ var arr=btn.querySelector('.arr');
+ if(body.style.display==='none'){
+  body.style.display='block';
+  arr.innerHTML='&#9650;';
+ } else {
+  body.style.display='none';
+  arr.innerHTML='&#9660;';
+ }
+}
+function netSumTab(btn,pid){
+ var wrap=btn.closest('.net-sum-body');
+ wrap.querySelectorAll('.sim-tab').forEach(function(b){b.classList.remove('on');});
+ wrap.querySelectorAll('#nst-audio,#nst-video').forEach(function(p){p.style.display='none';});
+ btn.classList.add('on');
+ document.getElementById(pid).style.display='block';
+}
 </script>
 
+ <!-- Summary 탭 -->
+ <div style="grid-column:1/-1;margin-top:8px;">
+  <button class="sim-toggle-btn" onclick="netSumToggle(this)" style="width:100%;margin-bottom:0;">
+   시스템 신호 Summary
+   <span class="arr">&#9660;</span>
+  </button>
+  <div class="net-sum-body" style="display:none;margin-top:12px;">
+   <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:nowrap;">
+    <button class="sim-tab on" onclick="netSumTab(this,'nst-audio')" style="flex:1;">오디오·컨트롤 신호</button>
+    <button class="sim-tab" onclick="netSumTab(this,'nst-video')" style="flex:1;">비디오 신호</button>
+   </div>
+   <div id="nst-audio" style="display:block;">
+    <figure style="margin:0;">
+     <img loading="lazy" decoding="async"
+          src="https://gisancityboy.github.io/hanwha-ballpark/images/net_summary_audio.jpg"
+          style="width:100%;border-radius:6px;border:1px solid rgba(255,255,255,.12);"
+          alt="한화생명볼파크 Summary 음향 구성도">
+     <figcaption style="text-align:right;font-size:11px;color:rgba(255,255,255,.45);margin-top:6px;">
+      도면 중 일부 발췌 — Summary 음향 구성도
+     </figcaption>
+    </figure>
+   </div>
+   <div id="nst-video" style="display:none;">
+    <figure style="margin:0;">
+     <img loading="lazy" decoding="async"
+          src="https://gisancityboy.github.io/hanwha-ballpark/images/net_summary_video.jpg"
+          style="width:100%;border-radius:6px;border:1px solid rgba(255,255,255,.12);"
+          alt="한화생명볼파크 Summary 영상 구성도">
+     <figcaption style="text-align:right;font-size:11px;color:rgba(255,255,255,.45);margin-top:6px;">
+      도면 중 일부 발췌 — Summary 영상 구성도
+     </figcaption>
+    </figure>
+   </div>
+  </div>
+ </div>
 </div>
 <!-- 갤러리 이미지 슬롯 -->
     </div></div>
