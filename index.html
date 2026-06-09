@@ -931,6 +931,20 @@ document.addEventListener('click',function(e){
 });
 function lbClose(){document.getElementById('lb-overlay').classList.remove('on');}
 
+
+function perfSumToggle(btn){
+ var body=btn.nextElementSibling;
+ var arr=btn.querySelector('.arr');
+ if(body.style.display==='none'){body.style.display='block';arr.innerHTML='&#9650;';}
+ else{body.style.display='none';arr.innerHTML='&#9660;';}
+}
+function perfSumTab(btn,pid){
+ var wrap=btn.closest('.perf-sum-body');
+ wrap.querySelectorAll('.sim-tab').forEach(function(b){b.classList.remove('on');});
+ wrap.querySelectorAll('[id^="pst-"]').forEach(function(p){p.style.display='none';});
+ btn.classList.add('on');
+ document.getElementById(pid).style.display='block';
+}
 function netSumToggle(btn){
  var body=btn.nextElementSibling;
  var arr=btn.querySelector('.arr');
@@ -1252,6 +1266,29 @@ function netSumTab(btn,pid){
  <div class="sim-temp-label"><span class="t10">10°C</span></div>
  <div class="sim-img-wrap"><img loading="lazy" decoding="async" src="https://gisancityboy.github.io/hanwha-ballpark/images/img050.jpg"></div>
  </div>
+ </div>
+ <!-- 공연시스템 Summary -->
+ <div style="grid-column:1/-1;margin-top:32px;">
+  <button class="sim-toggle-btn" onclick="perfSumToggle(this)" style="width:100%;margin-bottom:0;">
+   공연시스템 Summary
+   <span class="arr">&#9660;</span>
+  </button>
+  <div class="perf-sum-body" style="display:none;margin-top:12px;">
+   <div style="display:flex;gap:8px;margin-bottom:12px;">
+    <button class="sim-tab on" onclick="perfSumTab(this,'pst-audio')" style="flex:1;">음향 및 컨트롤</button>
+   </div>
+   <div id="pst-audio" style="display:block;">
+    <figure style="margin:0;">
+     <img loading="lazy" decoding="async"
+          src="https://gisancityboy.github.io/hanwha-ballpark/images/perf_summary_audio.jpg"
+          style="width:100%;border-radius:6px;border:1px solid rgba(255,255,255,.12);"
+          alt="공연용 Summary 음향 구성도">
+     <figcaption style="text-align:right;font-size:11px;color:rgba(255,255,255,.45);margin-top:6px;">
+      구성도면 중 일부 발췌 — 공연용 Summary 음향 구성도
+     </figcaption>
+    </figure>
+   </div>
+  </div>
  </div>
 
  </div></div>
