@@ -1103,11 +1103,14 @@ function netSumTab(btn,pid){
     </tbody>
    </table>
    <p style="font-size:14px;line-height:1.85;color:rgba(255,255,255,.8);word-break:keep-all;">무대를 중심으로 A1~A6 · B1 · B2 · C 구역을 스탠딩 플로어로 구성하고,<br>100 · 200 · 300 · 400번대 기존 내야 고정석을 그대로 활용합니다.<br>FOH는 관중석 중앙부에 고정 운영되며,야구장 전체가 하나의 공연장으로 전환됩니다.<br><br>대관 측은 만석 시 회당 수익 약 15억 원으로 예상되며, 구장 측의 BEP는 15회 공연 시로 예상하여 시스템을 설계하였습니다.</p>
-  <!-- BEP 분석 다이어그램 -->
-  <div style="grid-column:1/-1;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
-
+  </div>
+  <!-- 오른쪽: 공연객석 이미지 -->
+  <img loading="lazy" decoding="async" src="https://gisancityboy.github.io/hanwha-ballpark/images/img043.jpg" alt="공연 좌석 배치도" style="width:100%;border-radius:6px;cursor:zoom-in;">
+ </div>
+ <!-- BEP 분석 다이어그램 -->
+ <div style="grid-column:1/-1;margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
    <!-- 좌: 대관료 구성 -->
-   <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:22px;">
+   <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:28px;">
     <p style="font-size:10px;color:var(--or,#f97316);font-weight:700;letter-spacing:.1em;margin:0 0 4px;">회당 대관료 구성</p>
     <p style="font-size:26px;font-weight:800;color:#fff;margin:0 0 18px;">2.3억 원 <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,.4);">/ 회</span></p>
     <div style="display:flex;flex-direction:column;gap:11px;">
@@ -1151,7 +1154,7 @@ function netSumTab(btn,pid){
    </div>
 
    <!-- 우: 투자 회수 시뮬레이션 -->
-   <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:22px;">
+   <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:28px;">
     <p style="font-size:10px;color:var(--or,#f97316);font-weight:700;letter-spacing:.1em;margin:0 0 4px;">투자 회수 시뮬레이션</p>
     <p style="font-size:12px;color:rgba(255,255,255,.45);margin:0 0 18px;">시즌오프(11월~3월) · 월 1회 공연 · 연 5회 기준</p>
     <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:18px;">
@@ -1193,9 +1196,6 @@ function netSumTab(btn,pid){
    </div>
 
   </div>
-  </div>
-  <!-- 오른쪽: 공연객석 이미지 -->
-  <img loading="lazy" decoding="async" src="https://gisancityboy.github.io/hanwha-ballpark/images/img043.jpg" alt="공연 좌석 배치도" style="width:100%;border-radius:6px;cursor:zoom-in;">
  </div>
  <button class="sim-toggle-btn" onclick="simToggle(this)" style="margin-top:48px;">
  음향 시뮬레이션 결과
