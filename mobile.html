@@ -55,7 +55,10 @@ button{font-family:inherit}
 
 /* ── 스펙 카드 ── */
 .sg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);margin-bottom:32px;border-radius:2px;overflow:hidden}
-.si{background:var(--dk2);padding:16px 14px;display:flex;flex-direction:column;gap:4px}
+.si{background:var(--dk2);padding:16px 14px;display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden;transition:background .2s,border-color .2s;cursor:pointer}
+.si::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.si:active{background:var(--dk3);border-color:rgba(232,90,0,.35)}
+.si:active::after{transform:scaleX(1)}
 .si .sl{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--or);font-weight:500}
 .si .sv{font-size:15px;color:var(--wh);font-weight:500;font-family:'Bebas Neue',sans-serif;letter-spacing:.05em}
 .si .sd{font-size:11px;color:var(--txd);line-height:1.4}
@@ -517,7 +520,7 @@ if(!/Mobi|Android|iPhone|iPad|iPod|Tablet/i.test(navigator.userAgent)){
 
  <!-- SPEC CARDS -->
  <div class="sg fi vs">
- <div class="si si-client" onclick="document.getElementById('modal-eagles').classList.add('open')" style="cursor:pointer"><div class="sl">클라이언트</div><div class="sv">한화 이글스</div><div class="sd">대전광역시 중구 부사동 →</div></div>
+ <div class="si si-client" onclick="document.getElementById('modal-eagles').classList.add('open')" style="cursor:pointer"><div class="sl">클라이언트</div><div class="sv">대전광역시 · 한화 이글스</div><div class="sd">대전광역시 중구 부사동 →</div></div>
  <div class="si" onclick="document.getElementById('modal-budget').classList.add('open')" style="cursor:pointer"><div class="sl">프로젝트 규모</div><div class="sv">150억 원</div><div class="sd">경기용 AV + 공연용 SR →</div></div>
  <div class="si" onclick="document.getElementById('modal-seating').classList.add('open')" style="cursor:pointer"><div class="sl">수용 규모</div><div class="sv">17,000석</div><div class="sd">야구 전용 구장 →</div></div>
  <div class="si" onclick="document.getElementById('modal-design').classList.add('open')" style="cursor:pointer"><div class="sl">설계 완료</div><div class="sv">2026</div><div class="sd">실시설계 및 시방서 →</div></div>
