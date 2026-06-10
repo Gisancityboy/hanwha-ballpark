@@ -970,6 +970,7 @@ function perfSumToggle(btn){
  if(body.style.display==='none'){
   body.style.display='block';arr.innerHTML='&#9650;';
   body.querySelectorAll('img').forEach(function(img){img.loading='eager';if(img.decode)img.decode().catch(function(){});});
+  nudgeScroll(body);
  } else {body.style.display='none';arr.innerHTML='&#9660;';}
  rs();requestAnimationFrame(function(){rs();requestAnimationFrame(function(){rs();});});
 }
@@ -993,6 +994,7 @@ function netSumToggle(btn){
   body.style.display='block';
   arr.innerHTML='&#9650;';
   body.querySelectorAll('img').forEach(function(img){img.loading='eager';if(img.decode)img.decode().catch(function(){});});
+  nudgeScroll(body);
  } else {
   body.style.display='none';
   arr.innerHTML='&#9660;';
@@ -1681,6 +1683,15 @@ function cm(id){document.getElementById(id).classList.remove('open');}
 document.querySelectorAll('.mo').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
 document.querySelectorAll('.mb,.mtb').forEach(m=>m.addEventListener('click',e=>e.stopPropagation()));
 
+function nudgeScroll(el){
+  setTimeout(function(){
+    var r=el.getBoundingClientRect();
+    if(r.top>window.innerHeight*0.62){
+      var delta=Math.min(r.top-window.innerHeight*0.38,250);
+      window.scrollBy({top:delta,behavior:'smooth'});
+    }
+  },130);
+}
 function simToggle(btn){
   btn.classList.toggle("open");
   var body=btn.nextElementSibling;
@@ -1690,6 +1701,7 @@ function simToggle(btn){
       img.loading='eager';
       if(img.decode)img.decode().catch(function(){});
     });
+    nudgeScroll(body);
   }
 }
 function simTab(btn,pid){
@@ -1705,7 +1717,7 @@ function simTab(btn,pid){
  var imgs=Array.from(panel.querySelectorAll('img'));
  var decodes=imgs.map(function(img){return img.decode?img.decode().catch(function(){}):Promise.resolve();});
  Promise.all(decodes).then(function(){
-  requestAnimationFrame(function(){rs();requestAnimationFrame(function(){rs();});});
+  requestAnimationFrame(function(){rs();requestAnimationFrame(function(){rs();nudgeScroll(panel);});});
 });
 }
 
