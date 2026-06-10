@@ -975,15 +975,11 @@ function perfSumToggle(btn){
  rs();requestAnimationFrame(function(){rs();requestAnimationFrame(function(){rs();});});
 }
 function perfSumTab(btn,pid){
- var sy=window.scrollY||window.pageYOffset;
- function rs(){window.scrollTo(0,sy);document.documentElement.scrollTop=sy;document.body.scrollTop=sy;}
  var wrap=btn.closest('.perf-sum-body');
  wrap.querySelectorAll('.sim-tab').forEach(function(b){b.classList.remove('on');});
  wrap.querySelectorAll('[id^="pst-"]').forEach(function(p){p.style.display='none';});
  btn.classList.add('on');
- var panel=document.getElementById(pid);
- panel.style.display='block';
- rs();requestAnimationFrame(function(){rs();requestAnimationFrame(function(){rs();});});
+ document.getElementById(pid).style.display='block';
 }
 function netSumToggle(btn){
  var sy=window.scrollY||window.pageYOffset;
@@ -1002,14 +998,11 @@ function netSumToggle(btn){
  rs();requestAnimationFrame(function(){rs();requestAnimationFrame(function(){rs();});});
 }
 function netSumTab(btn,pid){
- var sy=window.scrollY||window.pageYOffset;
- function rs(){window.scrollTo(0,sy);document.documentElement.scrollTop=sy;document.body.scrollTop=sy;}
  var wrap=btn.closest('.net-sum-body');
  wrap.querySelectorAll('.sim-tab').forEach(function(b){b.classList.remove('on');});
  wrap.querySelectorAll('#nst-audio,#nst-video').forEach(function(p){p.style.display='none';});
  btn.classList.add('on');
  document.getElementById(pid).style.display='block';
- rs();requestAnimationFrame(function(){rs();requestAnimationFrame(function(){rs();});});
 }
 </script>
 
